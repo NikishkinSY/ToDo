@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/app/listTasks.js"></script>
+<link href="~/Styles/app/list-task.css" rel="stylesheet" />
+
+<div ng-controller="TasksCtrl">
+    <div class="header-content middle-position">
+        <div class="header-name">
+            <h2>Task manager</h2>
+        </div>
+        <div class="header-user">
+            <h3>
+                @Html.Partial("UserName")
+            </h3>
+        </div>
+
+    </div>
+    <div class="body-content middle-position">
+        @if (TempData["message"] != null)
+        {
+            <div class="Message">@TempData["message"]</div>
+        }
+        @RenderBody()
+    </div>
+    <div class="footer-content middle-position">
+        Copyright reserved
+    </div>
+</div>

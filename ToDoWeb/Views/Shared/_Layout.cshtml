@@ -1,0 +1,27 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <script src="~/Scripts/lib/jquery.min.js"></script>
+    <script src="~/Scripts/lib/bootstrap.min.js"></script>
+    <script src="~/Scripts/lib/angular.min.js"></script>
+    <script src="~/Scripts/lib/toastr.js"></script>
+
+    <link href="~/Styles/lib/toastr.css" rel="stylesheet" />
+    <link href="~/Styles/lib/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Styles/app/main.css" rel="stylesheet" />
+</head>
+<body ng-app="TasksApp">
+    @RenderBody()
+</body>
+</html>

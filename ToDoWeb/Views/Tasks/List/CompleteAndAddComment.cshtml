@@ -1,0 +1,18 @@
+﻿<div id="CompleteAndAddComment" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <input type="button" class="close" data-dismiss="modal" aria-hidden="true" value="×" />
+                <h4 class="modal-title">Change task</h4>
+            </div>
+            <div class="modal-body">
+                <label class="control-label">Add comment</label>
+                <input class="form-control" type="text" ng-model="EditedTask.Comment" />
+            </div>
+            <div class="modal-footer">
+                <input type="button" class="btn btn-default" data-dismiss="modal" value="Close" />
+                <input type="button" class="btn btn-primary" ng-click="ChangeTaskStatus(EditedTask, 'Complete')" data-dismiss="modal" value="Save changes">
+            </div>
+        </div>
+    </div>
+</div>

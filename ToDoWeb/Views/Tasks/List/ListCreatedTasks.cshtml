@@ -1,0 +1,56 @@
+﻿<link href="~/Styles/app/create-task.css" rel="stylesheet" />
+
+<div ng-init="GetCreatedTasks()" class="rTable list-tasks-table">
+    <div class="rTableHead list-tasks-header">
+        <div class="col-wid-10 header-bold">
+            <a href="" ng-click="SortPredicateCreatedTask = 'Name'; reverse=!reverse">Name</a>
+            <input class="form-control" type="text" ng-model="SearchParamCreatedTask.Name" />
+        </div>
+        <div class="col-wid-28 header-bold">
+            <a href="" ng-click="SortPredicateCreatedTask = 'Text'; reverse=!reverse">Text</a>
+            <input class="form-control" type="text" ng-model="SearchParamCreatedTask.Text" />
+        </div>
+        <div class="col-wid-10 header-bold">
+            <a href="" ng-click="SortPredicateCreatedTask = 'Status'; reverse=!reverse">Status</a>
+            <select class="form-control" ng-model="SearchParamCreatedTask.Status">
+                <option value=""></option>
+                <option value="New">New</option>
+                <option value="Executing">Executing</option>
+                <option value="Complete">Complete</option>
+                <option value="Canceled">Canceled</option>
+            </select>
+        </div>
+        <div class="col-wid-15 header-bold">
+            <a href="" ng-click="SortPredicateCreatedTask = 'DTCreate'; reverse=!reverse">Create</a>
+            <input class="form-control" type="text" ng-model="SearchParamCreatedTask.DTCreate" />
+        </div>
+        <div class="col-wid-15 header-bold">
+            <a href="" ng-click="SortPredicateCreatedTask = 'DTExec'; reverse=!reverse">Exec</a>
+            <input class="form-control" type="text" ng-model="SearchParamCreatedTask.DTExec" />
+        </div>
+        <div class="col-wid-10 header-bold">
+            <a href="" ng-click="SortPredicateCreatedTask = 'ResponsableUser'; reverse=!reverse">RespUser</a>
+            <select class="form-control" ng-init="GetUsers()" ng-model="SearchParamCreatedTask.ResponsableUser">
+                <option ng-repeat="user in Users" value="{{user}}">{{user}}</option>
+            </select>
+        </div>
+        <div class="header-bold"></div>
+    </div>
+
+    <div class="rTableBody list-tasks-body">
+        <div class="rTableRow" ng-repeat="task in CreatedTasks | orderBy:SortPredicateCreatedTask:reverse | filter:SearchParamCreatedTask">
+            <div class="list-tasks-row">
+                <div class="col-wid-10 cell-overflow" data-toggle="modal" data-target="#EditModalForm" ng-click="ChooseTask(task)"><nobr>{{ task.Name }}</nobr></div>
+                <div class="col-wid-28 cell-overflow" data-toggle="modal" data-target="#EditModalForm" ng-click="ChooseTask(task)">
+                    <div class="cell-text"><nobr>{{ task.Text }}</nobr></div>
+                    <div class="cell-comment"><nobr>{{ task.Comment }}</nobr></div>
+                </div>
+                <div class="col-wid-10 cell-overflow" data-toggle="modal" data-target="#EditModalForm" ng-click="ChooseTask(task)">{{ task.Status }}</div>
+                <div class="col-wid-15 cell-overflow" data-toggle="modal" data-target="#EditModalForm" ng-click="ChooseTask(task)">{{ task.DTCreate | date:'dd.MM.yyyy HH:mm' }}</div>
+                <div class="col-wid-15 cell-overflow" data-toggle="modal" data-target="#EditModalForm" ng-click="ChooseTask(task)">{{ task.DTExec | date:'dd.MM.yyyy HH:mm' }}</div>
+                <div class="col-wid-10 cell-overflow" data-toggle="modal" data-target="#EditModalForm" ng-click="ChooseTask(task)">{{ task.ResponsableUser }}</div>
+                <div class="col-wid-5-right cell-overflow"> <input type="button" class="btn btn-danger list-tasks-btn" ng-click="RemoveCreatedTask(task, $index)" value="X" /> </div>
+            </div>
+        </div>
+    </div>
+</div>

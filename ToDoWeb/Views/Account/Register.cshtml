@@ -1,0 +1,18 @@
+﻿@model ToDoWeb.Infrastructure.Models.RegisterViewModel
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<h1>Register</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    @Html.EditorForModel()
+    <div class="buttons">
+        <input class="btn btn-primary" type="submit" value="Register" />
+        @Html.ActionLink("Login", "Login", "Account", null, new { @class = "btn btn-link" })
+    </div>
+}

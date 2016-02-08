@@ -1,0 +1,33 @@
+﻿@model ToDoWeb.Infrastructure.Models.TaskViewModel
+
+@{
+    ViewBag.Title = "Create task";
+    Layout = "~/Views/Shared/_TaskLayout.cshtml";
+}
+
+<link href="~/Styles/app/create-task.css" rel="stylesheet" />
+
+<div class="btn btn-link">
+    <a href="/Tasks/List">List tasks</a>
+</div>
+
+<h3>Create task</h3>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <label class="control-label">Name*</label>
+    @Html.TextBoxFor(s => s.Name, new { @class = "form-control" })
+    <label class="control-label">Text</label>
+    @Html.TextAreaFor(s => s.Text, new { @class = "form-control", style = "resize: none" })
+    <label class="control-label">Status*</label>
+    @Html.EnumDropDownListFor(s => s.Status, new { @class = "form-control" })
+    <label class="control-label">Datetime end*</label>
+    @Html.TextBoxFor(s => s.DTExec, new { @class = "form-control", ng_model = "date:\'dd.MM.yyyy HH:mm\'" })
+    <label class="control-label">Responsable User*</label>
+    @Html.DropDownListFor(s => s.ResponsableUser, new SelectList(Model.Users), new { @class = "form-control" })
+
+    <div class="buttons">
+        <input type="submit" value="Create" class="btn btn-primary" />
+        @Html.ActionLink("Tasks list", "List", "Tasks", null, new { @class = "btn btn-link" })
+    </div>
+}

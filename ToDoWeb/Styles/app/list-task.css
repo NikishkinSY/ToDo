@@ -1,0 +1,77 @@
+﻿.create-task{
+    margin:20px;
+}
+
+.header-bold{
+    font-weight:bold;
+}
+
+.cell-comment {
+    font-size: 70%;
+    color: darkred;
+}
+.cell-text{
+    min-height:50%;
+}
+
+.list-tasks-table{
+    min-width:800px;
+}
+
+.list-tasks-header{
+    padding:10px 10px;
+}
+
+.list-tasks-body{
+}
+
+.list-tasks-row{
+    height:3em;
+    padding:0 10px;
+}
+.list-tasks-row:hover{ background: #808080; }
+.list-tasks-btn{ margin:4px; }
+
+.col-wid-5{
+    float:left;
+    width:6%;
+    padding:0 2px;
+}
+.col-wid-5-right{
+    float:right;
+    width:6%;
+    padding:0 2px;
+}
+.col-wid-10{
+    float:left;
+    width:10%;
+    padding:0 2px;
+}
+.col-wid-15{
+    float:left;
+    width:15%;
+    padding:0 2px;
+}
+.col-wid-20{
+    float:left;
+    width:20%;
+    padding:0 2px;
+}
+.col-wid-28{
+    float:left;
+    width:28%;
+    padding:0 2px;
+}
+.cell-overflow{
+    overflow:hidden;
+    height:3em;
+}
+
+.rTable { display: table; } 
+.rTableRow { display: table-row; } 
+.rTableRow:nth-child(odd) { background: #e1e1e1; }
+.rTableHeading { display: table-header-group; } 
+.rTableBody { display: table-row-group; } 
+.rTableFoot { display: table-footer-group; } 
+.rTableCell, 
+.rTableHead { display: table-cell; }

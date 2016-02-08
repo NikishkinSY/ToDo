@@ -1,0 +1,11 @@
+﻿Hello:
+<div class="header-user-link" ng-init="GetUserName()">
+
+    <a href="/Account/Edit">
+        {{ UserName.Name }}
+        <img class="header-user-image" src="data:image/jpeg;base64, {{ UserName.Base64Photo }}" />
+    </a>
+
+
+</div>
+@Html.ActionLink("Exit", "Exit", "Account")

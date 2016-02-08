@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Tasks";
+    Layout = "~/Views/Shared/_TaskLayout.cshtml";
+}
+
+<script src="~/Scripts/app/listTasks.js"></script>
+<link href="~/Styles/app/list-task.css" rel="stylesheet" />
+
+<div class="list-content">
+    <div class="btn btn-link">
+        <a href="/Tasks/Create" ng-click="SortPredicate = 'DTExec'; reverse=!reverse">Create new task</a>
+    </div>
+
+    <div class="list-task">
+        @Html.Partial("List/ListCreatedTasks")
+    </div>
+
+    <div class="list-task">
+        @Html.Partial("List/ListResponsableTasks")
+    </div>
+
+    @Html.Partial("List/EditModalForm")
+    @Html.Partial("List/CompleteAndAddComment")
+</div>

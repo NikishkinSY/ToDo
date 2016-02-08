@@ -1,0 +1,29 @@
+﻿@model ToDoWeb.Infrastructure.Models.EditUserViewModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<h1>Edit</h1>
+
+@using (Html.BeginForm("Edit", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.EditorForModel()
+    <div class="editor-label">
+        <b>Upload photo</b>
+    </div>
+    <div class="editor-field">
+        <input type="file" name="PhotoImage" />
+    </div>
+    <div class="account-image">
+        <a href="@Url.Action("PhotoImage")">
+            <img src="data:image/jpeg;base64, @Convert.ToBase64String(Model.Photo)" width="100" height="100" />
+        </a>
+    </div>
+    <div class="buttons">
+        <input class="btn btn-primary" type="submit" value="Edit" />
+        @Html.ActionLink("Tasks list", "List", "Tasks", null, new { @class = "btn btn-link" })
+    </div>
+}

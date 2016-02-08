@@ -1,0 +1,49 @@
+﻿<div id="EditModalForm" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <input type="button" class="close" data-dismiss="modal" aria-hidden="true" value="×" />
+                <h4 class="modal-title">Change task</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <tr>
+                        <td><label class="control-label">Name</label></td>
+                        <td><input class="form-control" type="text" ng-model="EditedTask.Name" /></td>
+                    </tr>
+                    <tr>
+                        <td><label class="control-label">Text</label></td>
+                        <td><div><textarea rows="5" style="resize: none" ng-model="EditedTask.Text" class="form-control"></textarea></div></td>
+                    </tr>
+                    <tr>
+                        <td><label class="control-label">Status</label></td>
+                        <td>
+                            <select class="form-control" ng-model="EditedTask.Status">
+                                <option value="New">New</option>
+                                <option value="Executing">Executing</option>
+                                <option value="Complete">Complete</option>
+                                <option value="Canceled">Canceled</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="control-label">Datetime end</label></td>
+                        <td><input type="text" ng-model="EditedTask.DTExec" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <td><label class="control-label">Responsable user</label></td>
+                        <td>
+                            <select class="form-control" ng-model="EditedTask.ResponsableUser" ng-init="GetUserNames()">
+                                <option ng-repeat="user in UserNames" value="{{user}}">{{user}}</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <input type="button" class="btn btn-default" data-dismiss="modal" value="Close" />
+                <input type="button" class="btn btn-primary" ng-click="EditTask(EditedTask)" data-dismiss="modal" value="Save changes">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Styles/app/account.css" rel="stylesheet" />
+
+<div class="container" ng-controller="LoginCtrl">
+    @if (TempData["message"] != null)
+    {
+        <div class="Message">@TempData["message"]</div>
+    }
+    @RenderBody()
+</div>
